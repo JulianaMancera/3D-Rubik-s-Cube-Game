@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rubik's Cube</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        #instructions {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        #instructions.hidden {
+            opacity: 0;
+            transform: translateX(100%);
+            pointer-events: none;
+        }
+        
+        #moveCount {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        #status {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .key {
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #FFD700;
+        }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            text-align: center;
+            display: none;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            #ui, #instructions {
+                position: relative;
+                margin: 10px;
+                max-width: none;
+            }
+            
+            #controls {
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                transform: none;
+            }
+            
+            button {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div class="spinner"></div>
+        <div>Loading 3D Rubik's Cube...</div>
+    </div>
+    
+    <div id="ui">
+        <div id="moveCount">Moves: 0</div>
+        <div>Status: <span id="status">Ready</span></div>
+    </div>
+    
+    <div id="instructions">
+        <h3>🎮 Controls</h3>
+        <p><strong>Keyboard:</strong></p>
+        <p><span class="key">R</span> - Right face (Red)</p>
+        <p><span class="key">L</span> - Left face (Orange)</p>
+        <p><span class="key">U</span> - Up face (White)</p>
+        <p><span class="key">D</span> - Down face (Yellow)</p>
+        <p><span class="key">F</span> - Front face (Green)</p>
+        <p><span class="key">B</span> - Back face (Blue)</p>
+        <p><span class="key">Shift</span> + Key - Counter-clockwise</p>
+        <p><strong>Mouse:</strong> Drag to rotate view</p>
+        <p><strong>Tip:</strong> Try scrambling first, then solve!</p>
+    </div>
+    
+    <div id="controls">
+        <button id="scrambleBtn" onclick="scrambleCube()">🎲 Scramble</button>
+        <button id="solveBtn" onclick="solveCube()">🧩 Auto Solve</button>
+        <button id="resetBtn" onclick="resetCube()">🔄 Reset</button>
+        <button id="helpBtn" onclick="toggleHelp()">❓ Help</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="rubiks.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                init();
+                document.getElementById('loading').style.display = 'none';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
