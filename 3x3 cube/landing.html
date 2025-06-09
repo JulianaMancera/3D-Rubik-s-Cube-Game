@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube 3D - Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        .cube-spin {
+            animation: spin 10s infinite linear;
+        }
+        @keyframes spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-800">Rubik's Cube 3D</h1>
+                </div>
+                <div class="space-x-4">
+                    <a href="#features" class="text-gray-600 hover:text-gray-800">Features</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-800">About</a>
+                    <a href="index.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-6">
+                Experience the Classic Rubik's Cube in Stunning 3D
+            </h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                Twist, turn, and solve, and conquer the iconic puzzle with smooth controls and vibrant visuals. Ready to test your skills?
+            </p>
+            <div>
+            <a href="index.html" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Start Playing</a>
+        </div>
+        <div class="mt-12 flex justify-center">
+            <img src="https://via.placeholder.com/300x300?text=Rubik's+Cube" alt="Rubik's Cube" class="cube-spin w-64 h-64">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Game Features</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h3 class="text-xl font-semibold mb-2">Intuitive Controls</h3>
+                    <p class="text-gray-600">Use keyboard (R, L, U, D, F, B) or mouse to rotate faces and view the cube from any angle.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4">🎲</div>
+                    <h3 class="text-xl font-semibold mb-2">Scramble & Solve</h3>
+                    <p class="text-gray-600">Randomly scramble the cube or watch the auto-solve feature in action.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-xl font-semibold mb-2">Stunning 3D Graphics</h3>
+                    <p class="text-gray-600">Enjoy realistic lighting, shadows, and smooth animations powered by WebGL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About the Game</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://via.placeholder.com/500x300?text=Game+Screenshot" alt="Game Screenshot" class="rounded-lg shadow-md">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg text-gray-600 mb-4">
+                        Rubik's Cube 3D brings the timeless puzzle to your browser with a modern twist. Built with Three.js, this game offers a fully interactive 3D experience. Whether you're a beginner or a speedcubing pro, challenge yourself to solve the cube or let the auto-solver show you the way.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Features like move tracking, reset options, and a help guide make it easy to dive in. Play now and see how fast you can solve the cube!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Rubik's Cube 3D. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
