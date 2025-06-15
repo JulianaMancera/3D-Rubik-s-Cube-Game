@@ -17,4 +17,7 @@ A web-based 3D Rubik's Cube simulator with smooth animations and interactive con
    `npm install`
 4. Run the application: <br>
    `npm start`
-5. Open `http://localhost:3000`in your browser or right click the `landing.html` and click Open Live Server.
+5. Open `http://localhost:3000`in your browser or right click the `landing.html` and click Open with Live Server.
+
+## Programmer
+© 2025 Juliana Mancera
