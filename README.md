@@ -3,9 +3,9 @@ A web-based 3D Rubik's Cube simulator with smooth animations and interactive con
 
 ## Features
 - **Interactive 3D Cube:** Rotate cube layers using keyboard or mouse/touch inputs.
-- **Smooth Animations:** 2D clockwise rotation effect, using CSS object-contain to prevent image stretching.
+- **Smooth Animations:** 2D clockwise rotation effect. 
 - **Scramble & Solve:** Randomly scramble the cube or use the built-in solver (Kociemba algorithm, ~20 moves).
-- **Responsive Design:** Works on desktop and mobile devices with swipe support.
+- **Responsive Design:** It works on desktop and mobile devices with swipe support.
 - **Timer & Stats:** Track solving time and move count.
 
 ## Installation
